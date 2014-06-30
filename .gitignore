@@ -1,0 +1,7 @@
+.dep.inc
+Makefile
+dist/
+docs/
+build/
+nbproject/
+*.swp
