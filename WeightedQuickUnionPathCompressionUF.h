@@ -1,12 +1,12 @@
 /* 
- * File:   UnionFindWeightedQuickUnionPathCompression.h
+ * File:   UnionFindWeightedQuickUnionPathCompressionUF.h
  * Author: kurt
  *
  * Created on June 29, 2014, 1:52 PM
  */
 
-#ifndef WEIGHTEDQUICKUNIONPATHCOMPRESSION_H
-#define	WEIGHTEDQUICKUNIONPATHCOMPRESSION_H
+#ifndef WEIGHTEDQUICKUNIONPATHCOMPRESSIONUF_H
+#define	WEIGHTEDQUICKUNIONPATHCOMPRESSIONUF_H
 #include <vector>
 #include <iosfwd>
 #include <ostream>
@@ -14,7 +14,7 @@
 /*
   Weighted Quick Union
 */
-class WeightedQuickUnionPathCompression : public UnionFindADT { 
+class WeightedQuickUnionPathCompressionUF : public UnionFindADT { 
      
 private:
     std::vector<int> id;    // id[i] = parent of i
@@ -30,13 +30,13 @@ private:
     int root(int p) const; 
  
 public:
-     WeightedQuickUnionPathCompression(int N);   
+     WeightedQuickUnionPathCompressionUF(int N);   
      /**
      * Returns the number of components.
      * @return the number of components (between 1 and N)
      */
     int  get_count() const;
-    friend std::ostream& operator<<(std::ostream& ostr, const WeightedQuickUnionPathCompression& qf);
+    friend std::ostream& operator<<(std::ostream& ostr, const WeightedQuickUnionPathCompressionUF& qf);
     
     
     /**
@@ -57,7 +57,7 @@ public:
     
 };
 
-inline int WeightedQuickUnionPathCompression::get_count() const
+inline int WeightedQuickUnionPathCompressionUF::get_count() const
 {
     return count;
 }

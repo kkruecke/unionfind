@@ -4,7 +4,7 @@
 #include "QuickFind.h"
 #include "QuickUnion.h"
 #include "WeightedQuickUnion.h"
-#include "WeightedQuickUnionPathCompression.h"
+#include "WeightedQuickUnionPathCompressionUF.h"
 
 using namespace std;
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     
     run_test(x3);
     
-    WeightedQuickUnionPathCompression x4(10);
+    WeightedQuickUnionPathCompressionUF x4(10);
     
     run_test(x4);
     return 0;

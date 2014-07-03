@@ -1,8 +1,8 @@
-#include "WeightedQuickUnionPathCompression.h"
+#include "WeightedQuickUnionPathCompressionUF.h"
 #include <iostream>
 using namespace std;
 
-WeightedQuickUnionPathCompression::WeightedQuickUnionPathCompression(int N) : UnionFindADT(), id(N), size(N), count(N)  
+WeightedQuickUnionPathCompressionUF::WeightedQuickUnionPathCompressionUF(int N) : UnionFindADT(), id(N), size(N), count(N)  
 {
   for(auto i = 0; i < N; ++i) {
         id[i] = i;
@@ -10,8 +10,8 @@ WeightedQuickUnionPathCompression::WeightedQuickUnionPathCompression(int N) : Un
   }
 }
 
-//std::ostream& operator<<(std::ostream& ostr, const WeightedQuickUnionPathCompression& qf)
-ostream& WeightedQuickUnionPathCompression::print(ostream& ostr) const
+//std::ostream& operator<<(std::ostream& ostr, const WeightedQuickUnionPathCompressionUF& qf)
+ostream& WeightedQuickUnionPathCompressionUF::print(ostream& ostr) const
 {
     for (auto i =  0; i < id.size(); ++i) {
 
@@ -27,7 +27,7 @@ ostream& WeightedQuickUnionPathCompression::print(ostream& ostr) const
 * Merges the component containing site p with the component
 * containing site q.
 */
-void WeightedQuickUnionPathCompression::do_union(int p, int q) 
+void WeightedQuickUnionPathCompressionUF::do_union(int p, int q) 
 {
     int rootP = root(p);
     int rootQ = root(q);
@@ -58,7 +58,7 @@ void WeightedQuickUnionPathCompression::do_union(int p, int q)
     count--;
 }
 
-int  WeightedQuickUnionPathCompression::root(int p) const
+int  WeightedQuickUnionPathCompressionUF::root(int p) const
 {
     int root = p;
    // First pass (up tree): determine root 
@@ -72,7 +72,7 @@ int  WeightedQuickUnionPathCompression::root(int p) const
           int newp = id[p];
           
           // cast away const
-          WeightedQuickUnionPathCompression *non_const_this = const_cast<WeightedQuickUnionPathCompression *>(this);
+          WeightedQuickUnionPathCompressionUF *non_const_this = const_cast<WeightedQuickUnionPathCompressionUF *>(this);
           non_const_this->id[p] = root;
           p = newp;
    }
